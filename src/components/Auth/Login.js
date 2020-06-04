@@ -70,9 +70,9 @@ class Login extends React.Component {
     return (
       <Grid textAlign="center" verticalAlign="middle" className="app">
         <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h1" icon color="violet" textAlign="center">
-            <Icon name="code branch" color="violet" />
-            Login To DevChat
+          <Header as="h1" icon textAlign="center">
+            <Icon name="code branch" />
+            Login To Hooli-Dev
           </Header>
 
           <Form onSubmit={this.handleSubmit} size="large">

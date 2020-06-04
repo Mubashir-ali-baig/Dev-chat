@@ -36,3 +36,27 @@ export const setPrivateChannel = isPrivateChannel =>{
         }
     }
 }
+
+/* Set User Posts Action */
+
+export const setUserPosts = userPosts =>{
+    return{
+        type: actionTypes.SET_USER_POSTS,
+        payload: {
+            userPosts
+        }
+    }
+}
+
+/* COLORS ACTIONS */
+
+export const setColors =(primaryColor, secondaryColor)=>{
+    return {
+        type:actionTypes.SET_COLORS,
+        payload:{
+            primaryColor,
+            secondaryColor
+        }
+    }
+}
+    

@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import firebase from "../../firebase";
 import { connect } from "react-redux";
 import { setCurrentChannel,setPrivateChannel} from "../../actions/index";
@@ -13,6 +14,7 @@ class Channels extends React.Component {
     modal: false,
     firstLoad:true,
     activeChannel:'',
+    typingRef:firebase.database().ref('typing'),
     channel:null,
     messagesRef:firebase.database().ref("messages"),
     notifications:[]
@@ -28,6 +30,9 @@ class Channels extends React.Component {
 
   removeListeners = () => {
     this.state.channelsRef.off();
+    this.state.channels.forEach(channel=>{
+    this.state.messagesRef.child(channel.id).off();
+    })
   };
 
   addListeners = () => {
@@ -132,6 +137,10 @@ class Channels extends React.Component {
 
   changeChannel = (channel) => {
     this.setActiveChannel(channel);
+    this.state.typingRef
+      .child(this.state.channel.id)
+      .child(this.state.user.uid)
+      .remove()
     this.clearNotifications();
     this.props.setCurrentChannel(channel);
     this.props.setPrivateChannel(false);
@@ -195,7 +204,7 @@ class Channels extends React.Component {
             <span>
               <Icon name="exchange" /> CHANNELS
             </span>{" "}
-            ({channels.length}) <Icon name="add" onClick={this.openModal} />
+            ({channels.length})<Link to="" ><Icon  name="add" onClick={this.openModal} /></Link>
           </Menu.Item>
           {this.displayChannels(channels)}
         </Menu.Menu>

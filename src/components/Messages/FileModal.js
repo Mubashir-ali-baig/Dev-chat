@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Input, Button, Icon } from "semantic-ui-react";
-import mime, { contentType } from "mime-types";
+import mime from "mime-types";
 class FileModal extends React.Component {
   state = {
     file: null,

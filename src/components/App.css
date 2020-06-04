@@ -1,51 +1,314 @@
 html,
-
 body,
-
 .app {
-    height: 100vh;
-    background: #eee;
-    padding: 1em;
+  height: 100vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(90, 9, 121, 1) 70%,
+    rgba(145, 0, 255, 1) 100%
+  );
+  padding: 5px;
+ 
+  margin-top: auto;
+  
+}
+
+.ui.inverted.menu {
+  border: 0 solid transparent;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(90, 9, 121, 1) 70%,
+    rgba(145, 0, 255, 1) 100%
+  );
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+element.style {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(90, 9, 121, 1) 70%,
+    rgba(145, 0, 255, 1) 100%
+  );
+  font-size: 1.2rem;
+}
+
+/* Meta Panel */
+
+.creator {
+  border-radius: 50%;
 }
 
 /* Side Panel */
+.menu {
+  padding-bottom: 2em;
+  overflow-y: scroll;
+}
 
-.menu{
-    padding-bottom:2em;
+.ui.vertical.inverted.menu .menu .item,
+.ui.vertical.inverted.menu .menu .item a:not(.ui) {
+  color: rgba(255, 255, 255, 0.5);
+  padding-right: 5px;
 }
 
 /* Messages */
 
-.messages{
-    height: 440px;
-    overflow-y: scroll;
+
+
+.messages {
+  height: 62vh;
+  overflow-y: scroll;
 }
 
-.message__form{
-    position:fixed !important;
-    bottom: 1em;
-    margin-left: 320px !important;
-    left:0;
-    right:1em;
-    z-index:200;
-}
+.message__form {
+    position: relative !important;
+    top:-7px;
+    bottom: 0em;
+    margin-left: 0px !important;
+    z-index: 200;
+    padding-bottom: -1px;
+  }
 
 /*Message*/
 
-.message__self{
-    border-left:2px solid #4c3c4c;
-    padding-left:8px;
-
+.message__self {
+  border-left: 2px solid #4c3c4c;
+  padding-left: 8px;
 }
 
-.message__image{
-    padding: 1em
+.message__image {
+  padding: 1em;
+}
+
+/* Color Panel */
+
+.color__container {
+  position: relative;
+  overflow: hidden;
+  width: 35px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.color__square {
+  width: 35px;
+  height: 35px;
+}
+
+.color__overlay {
+  width: 85px;
+  height: 35px;
+  transform: rotate(225deg);
 }
 
 /* Progress Bar */
 
-.progress__bar{
-    margin: 0.3em 0 0 0 !important;
+.progress__bar {
+  margin: 0.3em 0 0 0 !important;
 }
 
+/* Typing */
 
+.user__typing {
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 3px;
+  color: white;
+}
+
+.typing {
+  width: 5em;
+  height: 2em;
+  position: relative;
+  padding: 10px;
+  margin-left: 5px;
+  background: #4c3c4c;
+  border-radius: 20px;
+}
+
+.typing__dot {
+  float: left;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background: #e6e6e6;
+  border-radius: 50%;
+  opacity: 0;
+  animation: loadingFade 1s infinite;
+}
+
+.typing__dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing__dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing__dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Emoji */
+
+.emojipicker {
+  position: absolute;
+}
+
+/* Message Skeleton */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.skeleton:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  animation: sweep 2s infinite;
+  background-image: linear-gradient(
+    to left,
+    transparent,
+    rgb(255, 255, 255),
+    transparent
+  );
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.skeleton__avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+}
+
+.skeleton__author {
+  background-color: rgba(255, 255, 255, 0.767);
+  width: 120px;
+  height: 10px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  right: 0;
+}
+
+.skeleton__details {
+  background-color: rgba(238, 226, 226, 0.3);
+  height: 20px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 5px;
+  left: 40;
+  right: 20px;
+}
+
+.ui .comments .comment .text {
+  color: white;
+}
+
+.ui .comments .comment a.author {
+  color: white;
+}
+
+.ui .comments .comment .metadata {
+  color: white;
+}
+
+.ui.header .icon:only-child {
+  cursor: pointer;
+}
+
+.ui.top.attached.header {
+  background-color: #1b1c1d;
+  border: #1b1c1d;
+}
+
+i.icon {
+  cursor: pointer;
+}
+
+.ui.styled.accordion,
+.ui.styled.accordion .accordion {
+  background: #1b1c1d;
+}
+
+.ui.inverted.segment,
+.ui.primary.inverted.segment {
+  background: #1b1c1d;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ui.styled.accordion .accordion .title,
+.ui.styled.accordion .title {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ui.list .list > .item a.header,
+.ui.list > .item a.header {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.ui.list .list > .item .description,
+.ui.list > .item .description {
+  display: block;
+  color: #bababc;
+}
+
+.ui.header {
+  color: #bababc;
+}
+
+.ui.header .icon:only-child {
+  cursor: pointer;
+  color: white;
+}
+
+.ui.center.aligned.header,
+.ui.centered.header {
+  text-align: center;
+  color: white;
+}
+
+.ui.icon.header.aligned {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: white;
+}
